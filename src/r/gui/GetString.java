@@ -11,19 +11,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class GetString extends JFrame implements ActionListener { 
 		
 	private Object monitor;
 	private ActionEvent actionEvent;
-	//Lablar
+	// Labels
 	private JLabel label;
 	private JLabel message = new JLabel("");
 
-	//knappar
+	// Buttons
 	private JButton cancel = new JButton("Cancel");
 	private JButton next = new JButton("Next");
 		
-	//textf�lt
+	// Text Fields
 	private JTextField textField=new JTextField();
 	
 	
@@ -43,7 +44,7 @@ public class GetString extends JFrame implements ActionListener {
 		c.setLayout(null);
 		setSize(windowWidth + 4,windowHeight + 30);
 			
-		//****************Lablar********
+		// **************** Labels ********
 		label = new JLabel(labelText);
 		c.add(label);
 		label.setBounds  (distance,distance,width * 2 + distance,height);
@@ -52,7 +53,7 @@ public class GetString extends JFrame implements ActionListener {
 		c.add(message);
 		message.setBounds(distance,distance * 3 + height * 2,width*2+distance,height);
 
-		//****************knappar****************
+		// **************** Buttons ****************
 		c.add(next);
 		next.setBounds(distance * 2 + width,distance * 4 + height * 3,width,height);
 		next.addActionListener(this);
@@ -62,7 +63,7 @@ public class GetString extends JFrame implements ActionListener {
 		cancel.addActionListener(this);
 
 		
-		//****************textf�lt****************
+		//**************** Text Fields ****************
 		c.add(textField);
 		textField.setBounds(distance,distance * 2 + height,width * 2 + distance,height);
 		

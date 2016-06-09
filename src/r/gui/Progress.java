@@ -6,6 +6,7 @@ import javax.swing.*;
 
 import java.beans.*;
 
+@SuppressWarnings("serial")
 public class Progress extends JPanel implements ActionListener, 
                                         PropertyChangeListener {
 

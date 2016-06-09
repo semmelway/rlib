@@ -1,11 +1,13 @@
 package r.util;
 
+@SuppressWarnings("serial")
 public class Date extends java.util.Date {
 	
 	public Date(long time){
 		super(time);
 	}
 	
+	@SuppressWarnings("deprecation")
 	public String getSwedishDate(){
 		String date = "";
 		

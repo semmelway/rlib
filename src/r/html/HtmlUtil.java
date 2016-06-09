@@ -69,11 +69,11 @@ public class HtmlUtil {
 		out.println("<img src=\"" + path + picName + "\" width=\""+width+"\" alt=\"\"/>" );
 	}
 	public void drawImageLn(String picName, String path, int width){
-		out.println("<img src=\"" + path + picName + "\" width=\""+width+"\" alt=\"\"/><br/>" );
+		out.println("<img src=\"" + path + picName + "\" width=\""+width+"\" alt=\"\"/><br>" );
 	}
 	
 	public String getImageLn(String picName, String path, int width) {
-		return "<img src=\"" + path + picName + "\" width=\""+width+"\" alt=\"\"/><br/>";
+		return "<img src=\"" + path + picName + "\" width=\""+width+"\" alt=\"\"/><br>";
 	}
 	
 	public void drawImageLinkLn(String link, String pictureName, String path, int width, int linkType)
@@ -137,7 +137,7 @@ public class HtmlUtil {
 		text = text.replace("  ", "&nbsp;&nbsp;");
 		out.println("<font color=\""+color+"\" face=\""+face+"\" size=\""+size+"\">");
 		out.println(text);
-		out.println("<br/>");
+		out.println("<br>");
 		out.println("</font>");
 	}
 	
@@ -163,7 +163,20 @@ public class HtmlUtil {
 		 	out.println("<a href=\""+linkTarget+"\" style=\"text-decoration:none;\"target=\"_blank"+ "\">");
 			out.println("<font color=\""+color+"\" face=\""+face+"\" size=\""+size+"\">");
 			out.println(linkLabel);
-			out.println("</font></a><br/>");
+			out.println("</font></a><br>");
+	 }
+	 
+	 public void writeTextLinkS(String linkLabel, String linkTarget, ClassSelector selector, int linkType){
+		 
+		 StringBuilder html = new StringBuilder("");
+		 html.append("<a class=\"" + selector.name + "\" ");
+		 html.append("href=\""+linkTarget+"\" ");
+		 if(linkType == newWindow)
+			 html.append("target=\"_blank"+ "\" ");
+		 html.append("style=\"text-decoration:none;"+ "\">");
+		 html.append(linkLabel);
+		 html.append("</a>");
+		 out.println(html.toString());
 	 }
 	 
 	 public void writeTextLink(String linkLabel, String linkTarget, ClassSelector selector, int linkType){
@@ -176,7 +189,6 @@ public class HtmlUtil {
 		 html.append(linkLabel);
 		 html.append("</a>");
 		 writeText(selector, html.toString());
-		 
 	 }
 	
 	 public void writeTextLink(String linkLabel, String linkTarget, int linkType){
@@ -225,7 +237,16 @@ Get Centered
 		 out.println("style=\"text-decoration:none;"+ "\">");
 		 out.println("<font color=\""+color+"\" face=\""+face+"\" size=\""+size+"\">");
 		 out.println(linkLabel);
-		 out.println("</font></a><br/>");
+		 out.println("</font></a><br>");
+	 }
+	 
+	 public void printLink(String linkLabel, String linkTarget, int linkType){
+		 out.print("<a href=\""+linkTarget+"\" ");
+		 if(linkType == newWindow)
+			 out.print("target=\"_blank"+ "\">");
+		 out.print("style=\"text-decoration:none;"+ "\">");
+		 out.print(linkLabel);
+		 out.println("</a>");
 	 }
 	 
 	 public void printLinkLn(String linkLabel, String linkTarget, int linkType){
@@ -234,7 +255,7 @@ Get Centered
 			 out.print("target=\"_blank"+ "\" ");
 		 out.print("style=\"text-decoration:none;"+ "\">");
 		 out.print(linkLabel);
-		 out.println("</a><br/>");
+		 out.println("</a><br>");
 	 }
 	 
 	 public String getLink(String linkLabel, String linkTarget) {
@@ -252,7 +273,7 @@ Get Centered
 	
 	public void lineBreak(int numberOf){
 		for (int i = 0; i < numberOf; i++) {
-			out.println("<br/>");
+			out.println("<br>");
 		}
 	}
 
@@ -355,7 +376,7 @@ Get Centered
 	
 	public static String cleanFromBrTags(String stringToClean) {
 		
-		return stringToClean.replace("<br />", "");
+		return stringToClean.replace("<br>", "");
 	}
 	
 	public static String cleanFromTags(String stringToClean) {

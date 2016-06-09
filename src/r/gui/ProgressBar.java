@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
 
+@SuppressWarnings("serial")
 public class ProgressBar extends JFrame implements ActionListener, 
                                         PropertyChangeListener {
 
